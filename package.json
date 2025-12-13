@@ -4,7 +4,7 @@
   "private": true,
  "scripts": {
   "dev": "next dev",
-  "build": "CLIENT_ID=f20fcec1-00d0-4811-b5a0-7260dffe1728 CLIENT_SECRET=Ns18Q~e7b.D4E00pX5oZGSYi71D0epY.kfRlEbha NEXT_PUBLIC_USER_PRINCIPAL_NAME=nspool@vvwls.onmicrosoft.com next build",
+  "build": "NEXT_PUBLIC_CLIENT_ID=f20fcec1-00d0-4811-b5a0-7260dffe1728 NEXT_PUBLIC_CLIENT_SECRET=Ns18Q~e7b.D4E00pX5oZGSYi71D0epY.kfRlEbha NEXT_PUBLIC_USER_PRINCIPAL_NAME=nspool@vvwls.onmicrosoft.com next build",
   "deploy": "npm run build && npx @cloudflare/next-on-pages@1",
   "start": "next start",
   "lint": "next lint",
