@@ -1,36 +1,27 @@
 /**
  * This file contains the configuration for the API endpoints and tokens we use.
  *
- * - If you are a OneDrive International user, you would not have to change anything here.
- * - If you are not the admin of your OneDrive for Business account, you may need to define your own clientId/clientSecret,
- *   check documentation for more details.
- * - If you are using a E5 Subscription OneDrive for Business account, the direct links of your files are not the same here.
- *   In which case you would need to change directLinkRegex.
+ * NOTE: The client_id and client_secret MUST be set here because Cloudflare Pages
+ * is failing to inject environment variables into Next.js build process.
+ * These values MUST match your Azure App Registration settings.
  */
-// config/api.config.js
 module.exports = {
-    // ... (其他設定)
-    client_id: 'f20fcec1-00d0-4811-b5a0-7260dffe1728', // 替換成您的正確 CLIENT_ID
-    client_secret: 'Ns18Q~e7b.D4E00pX5oZGSYi71D0epY.kfRlEbha', // 替換成您的正確 CLIENT_SECRET
-    // ... (其他設定)
-};
+  // 設定一：Client ID 和 Secret (已用您的正確值替換)
+  client_id: 'f20fcec1-00d0-4811-b5a0-7260dffe1728',
+  client_secret: 'Ns18Q~e7b.D4E00pX5oZGSYi71D0epY.kfRlEbha',
 
-  // The redirectUri is the URL that the user will be redirected to after they have authenticated with Microsoft Graph API.
-  // Likewise, you would not need to change redirectUri if you are using your personal Microsoft account with OneDrive International.
+  // 設定二：重新導向 URI (這是 Step 1/3 頁面顯示的值)
+  // 警告：Azure App Registration 上的 'Redirect URI' 必須設定為您的實際 pages.dev 網址
   redirectUri: 'http://localhost',
 
-  // These are the URLs of the OneDrive API endpoints. You would not need to change anything here if you are using OneDrive International
-  // or E5 Subscription OneDrive for Business. You may need to change these if you are using OneDrive 世纪互联.
+  // 設定三：OneDrive API 端點
   authApi: 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
   driveApi: 'https://graph.microsoft.com/v1.0/me/drive',
 
-  // The scope we require are listed here, in most cases you would not need to change this as well.
+  // 設定四：權限範圍
   scope: 'user.read files.read.all offline_access',
 
-  // Cache-Control header, check Vercel documentation for more details. The default settings imply:
-  // - max-age=0: no cache for your browser
-  // - s-maxage=0: cache is fresh for 60 seconds on the edge, after which it becomes stale
-  // - stale-while-revalidate: allow serving stale content while revalidating on the edge
+  // 設定五：快取 (通常不需更動)
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
   cacheControlHeader: 'max-age=0, s-maxage=60, stale-while-revalidate',
-}
+};
