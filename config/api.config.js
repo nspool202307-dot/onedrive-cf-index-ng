@@ -8,7 +8,7 @@
 module.exports = {
   // 設定一：Client ID 和 Secret (已用您的正確值替換)
   client_id: 'f20fcec1-00d0-4811-b5a0-7260dffe1728',
-  client_secret: 'Ns18Q~e7b.D4E00pX5oZGSYi71D0epY.kfRlEbha',
+  client_secret: 'U2FsdGVkX19JieV7uvU+DbFRMgZgXEVnG5HZY46uY/rApBcJA5lpduEU1IKLvI9V4ZQK3FxsHpWx5uhe3xZ2SQ==',
 
   // 設定二：重新導向 URI (這是 Step 1/3 頁面顯示的值)
   // 警告：Azure App Registration 上的 'Redirect URI' 必須設定為您的實際 pages.dev 網址
