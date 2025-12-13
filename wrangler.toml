@@ -1,0 +1,21 @@
+# wrangler.toml
+name = "onedrive-cf-worker-nspool" # 請給您的 Workers 專案取一個獨特的名稱
+main = "worker.js"                 # 這是 Next-on-Pages 生成的 Workers 執行檔
+compatibility_date = "2025-12-12"  # 確保兼容性
+compatibility_flags = ["nodejs_compat"]
+
+# 綁定 KV 命名空間 (KV ID 必須替換為您的 onedrive_db 實際 ID)
+[[kv_namespaces]]
+binding = "KV"                     # 程式碼中訪問 KV 的變數名稱 (通常是 KV)
+id = "6c60d817d16e4b79bdfb4dfc18fad5ac" # 請確認這是您的 onedrive_db 實際 ID
+
+# 環境變數 (Workers 會從這裡讀取所有配置)
+[vars]
+# 前端和後端都需要 NEXT_PUBLIC_ 前綴
+NEXT_PUBLIC_CLIENT_ID = "f20fcec1-00d0-4811-b5a0-7260dffe1728"
+NEXT_PUBLIC_CLIENT_SECRET = "Ns18Q~e7b.D4E00pX5oZGSYi71D0epY.kfRlEbha"
+NEXT_PUBLIC_USER_PRINCIPAL_NAME = "nspool@vvwls.onmicrosoft.com"
+NEXT_PUBLIC_BASE_DIRECTORY = "/"
+
+# 處理 Step 3/3 UPN 比對 (後端 Functions 可能需要不帶前綴的版本)
+USER_PRINCIPAL_NAME = "nspool@vvwls.onmicrosoft.com"
